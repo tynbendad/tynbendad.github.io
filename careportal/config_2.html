@@ -68,6 +68,22 @@
 				ie: The name of the user entering the Care Portal Entries (Dad, Mom, T1 etc.)
 			</div>
 			<div data-role="fieldcontain">
+				<legend><strong>Carb ratio (carbs/insulin unit):</strong></legend>
+				<input type="text" name="carb_ratio" id="carb_ratio"/>
+			</div>
+			<div data-role="fieldcontain">
+				<legend><strong>BG correction factor (BGs/insulin unit):</strong></legend>
+				<input type="text" name="corr_factor" id="corr_factor"/>
+			</div>
+			<div data-role="fieldcontain">
+				<legend><strong>BG correction range, upper:</strong></legend>
+				<input type="text" name="corr_range_hi" id="corr_range_hi"/>
+			</div>
+			<div data-role="fieldcontain">
+				<legend><strong>BG correction range, lower:</strong></legend>
+				<input type="text" name="corr_range_lo" id="corr_range_lo"/>
+			</div>
+			<div data-role="fieldcontain">
 				<legend><strong>Enter Secret API:</strong></legend>
 				<input type="text" name="secretAPI" id="secretAPI" autocapitalize="off"
                 autocorrect="off"/>
@@ -111,7 +127,11 @@
 						'secretAPI' : $("#secretAPI").val(),
 						'units' : $('input[name=radio_units]:checked').val(),
 						'hashAPI' : $("#hashAPI").val(),
-						'insulinincrement' : $("#insulinincrement option:selected").val()						
+						'insulinincrement' : $("#insulinincrement option:selected").val(),
+						'carb_ratio' : $("#carb_ratio").val(),
+						'corr_factor' : $("#corr_factor").val(),
+						'corr_range_hi' : $("#corr_range_hi").val(),
+						'corr_range_lo' : $("#corr_range_lo").val()
 					}
 					// fix for the careportal entry and not being able to put special characters in names
 					//if (options.units == 'mgdl')
@@ -144,6 +164,10 @@
 					$("#secretAPI").val(opts && opts.secretAPI ? opts.secretAPI : '');
 					$("#hashAPI").val(opts && opts.hashAPI ? opts.hashAPI : '');
 					$("#insulinincrement").val('5').selectmenu("refresh");									
+					$("#carb_ratio").val(opts && opts.carb_ratio ? opts.carb_ratio : '');
+					$("#corr_factor").val(opts && opts.corr_factor ? opts.corr_factor : '');
+					$("#corr_range_hi").val(opts && opts.corr_range_hi ? opts.corr_range_hi : '');
+					$("#corr_range_lo").val(opts && opts.corr_range_lo ? opts.corr_range_lo : '');
 					document.getElementById('mgdl_form').style.display = 'block';
 					document.getElementById('mmol_form').style.display = 'none';
 				  }
@@ -180,6 +204,10 @@
 						$("#secretAPI").val(opts && opts.secretAPI ? opts.secretAPI : '');
 						$("#hashAPI").val(opts && opts.hashAPI ? opts.hashAPI : '');
 						$("#insulinincrement").val(opts.insulinincrement).selectmenu("refresh");
+						$("#carb_ratio").val(opts && opts.carb_ratio ? opts.carb_ratio : '');
+						$("#corr_factor").val(opts && opts.corr_factor ? opts.corr_factor : '');
+						$("#corr_range_hi").val(opts && opts.corr_range_hi ? opts.corr_range_hi : '');
+						$("#corr_range_lo").val(opts && opts.corr_range_lo ? opts.corr_range_lo : '');
 						if (opts.units == 'mgdl_form'){
 							$("input[value='" + opts.units + "']").attr("checked",true).checkboxradio("refresh");
 							document.getElementById('mgdl_form').style.display = 'block';
