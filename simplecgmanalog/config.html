@@ -88,13 +88,15 @@
             <option value="1">New BGs & Alerts</option>
             <option value="0">Alerts Only</option>
           </select>
+          <label for="showsec">Show second hand (may use more battery)</label>
+          <input type="checkbox" name="showsec" id="showsec" />    
           <label for="hide">Hide BG (tap or flick to show)</label>
           <input type="checkbox" name="hide" id="hide" />    
           <label for="taptime">Seconds of tap/flick display</label>
           <input type="text" name="taptime" id="taptime" value="4" />
-          <label for="fgcolor">Foreground color (black/white/red/green/blue/...)</label>
+          <label for="fgcolor">Foreground color (black/white/red/green/blue/... [case insensitive])</label>
           <input type="text" name="fgcolor" id="fgcolor" value="black" />
-          <label for="bgcolor">Background color (black/white/red/green/blue/...)</label>
+          <label for="bgcolor">Background color (black/white/red/green/blue/... [case insensitive])</label>
           <input type="text" name="bgcolor" id="bgcolor" value="white" />
           <hr>
           <fieldset class="ui-grid-a">
@@ -155,6 +157,7 @@
           'api': $("#api_ns").val(),
           'monogram': $("#monogram").val(),
           'raw': $('#raw').is(':checked'),
+          'showsec': $('#showsec').is(':checked'),
           'hide': $('#hide').is(':checked'),
           'taptime': $('#taptime').val(), 
           'fgcolor': $('#fgcolor').val(), 
@@ -171,6 +174,7 @@
           'vibe': $("#vibe").val(),
           'api': $("#api_ns").val(),
           'monogram': $("#monogram").val(),
+          'showsec': $('#showsec').is(':checked'),
           'hide': $('#hide').is(':checked'),
           'taptime': $('#taptime').val(), 
           'fgcolor': $('#fgcolor').val(), 
@@ -189,6 +193,7 @@
           'api': $("#api").val(),
           'region': $("#region").val(),
           'monogram': $("#monogram").val(),
+          'showsec': $('#showsec').is(':checked'),
           'hide': $('#hide').is(':checked'),
           'taptime': $('#taptime').val(), 
           'fgcolor': $('#fgcolor').val(), 
@@ -217,6 +222,7 @@
           'region': $("#region").val(),
           'remember' : $("#remember").is(':checked'),
           'remember_cl' : $("#remember_cl").is(':checked'),
+          'showsec': $('#showsec').is(':checked'),
           'hide': $('#hide').is(':checked'),
           'taptime': $('#taptime').val(), 
           'fgcolor': $('#fgcolor').val(), 
@@ -300,6 +306,7 @@
         $('#unit').selectmenu("refresh",true);
         $('#vibe').selectmenu("refresh",true);
 
+        $('#showsec').prop('checked', old_options.showsec).checkboxradio("refresh");
         $('#hide').prop('checked', old_options.hide).checkboxradio("refresh");
         $('#taptime').val(old_options.taptime);
         $('#fgcolor').val(old_options.fgcolor);
