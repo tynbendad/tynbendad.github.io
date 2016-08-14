@@ -98,6 +98,10 @@
           <input type="text" name="fgcolor" id="fgcolor" value="black" />
           <label for="bgcolor">Background color (black/white/red/green/blue/... [case insensitive])</label>
           <input type="text" name="bgcolor" id="bgcolor" value="white" />
+          <label for="cfgcolor">Complication foreground color (black/white/red/green/blue/... [case insensitive])</label>
+          <input type="text" name="cfgcolor" id="cfgcolor" value="black" />
+          <label for="cbgcolor">Complication background color (black/white/red/green/blue/... [case insensitive])</label>
+          <input type="text" name="cbgcolor" id="cbgcolor" value="white" />
           <hr>
           <fieldset class="ui-grid-a">
             <div class="ui-block-a">
@@ -162,6 +166,8 @@
           'taptime': $('#taptime').val(), 
           'fgcolor': $('#fgcolor').val(), 
           'bgcolor': $('#bgcolor').val(), 
+          'cfgcolor': $('#cfgcolor').val(), 
+          'cbgcolor': $('#cbgcolor').val(), 
           }
         } else if ($("#mode").val()=="Carelink") {
           options = {
@@ -179,6 +185,8 @@
           'taptime': $('#taptime').val(), 
           'fgcolor': $('#fgcolor').val(), 
           'bgcolor': $('#bgcolor').val(),
+          'cfgcolor': $('#cfgcolor').val(), 
+          'cbgcolor': $('#cbgcolor').val(),
           }
         
         } else {
@@ -198,6 +206,8 @@
           'taptime': $('#taptime').val(), 
           'fgcolor': $('#fgcolor').val(), 
           'bgcolor': $('#bgcolor').val(),
+          'cfgcolor': $('#cfgcolor').val(), 
+          'cbgcolor': $('#cbgcolor').val(),
         }
           
         }
@@ -227,6 +237,8 @@
           'taptime': $('#taptime').val(), 
           'fgcolor': $('#fgcolor').val(), 
           'bgcolor': $('#bgcolor').val(),
+          'cfgcolor': $('#cfgcolor').val(), 
+          'cbgcolor': $('#cbgcolor').val(),
         }
         if ($("#remember").is(':checked') || $("#remember_cl").is(':checked'))
         {
@@ -311,6 +323,8 @@
         $('#taptime').val(old_options.taptime);
         $('#fgcolor').val(old_options.fgcolor);
         $('#bgcolor').val(old_options.bgcolor);
+        $('#cfgcolor').val(old_options.cfgcolor);
+        $('#cbgcolor').val(old_options.cbgcolor);
         
         //$("#b-submit").prop("disabled", true);
          
