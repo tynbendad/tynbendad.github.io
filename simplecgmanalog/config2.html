@@ -23,8 +23,6 @@
               <option value="none">Select Mode (REQUIRED):</option>
               <option value="Share">Share</option>
               <option value="Nightscout">Nightscout</option>
-              <option value="Carelink">Carelink [NOT WORKING]</option>
-              <option value="Rogue">Rogue [CUSTOM CODE]</option>
             </select>
           </form>
         </div>
@@ -51,24 +49,6 @@
           <input type="checkbox" name="raw" id="raw" />    
           </div>
           </form>
-        <form name="Carelink" id="Carelink" style="display:none" onsubmit="wrapSubmit()">
-          <div data-role="fieldcontain">
-             <label for="accountName_cl">Carelink Username: </label>
-          <input type="text" name="accountName_cl" id="accountName_cl" value="" autocapitalize="off"
-                autocorrect="off"/>
-          <label for="password_cl">Carelink Password: </label>
-          <input type="password" name="password_cl" id="password_cl" value="" />
-          <label for="remember_cl">Remember Password</label>
-          <input type="checkbox" name="remember_cl" id="remember_cl" />
-          </div>
-        </form>
-         <form name="Rogue" id="Rogue" style="display:none" onsubmit="wrapSubmit()">
-          <div data-role="fieldcontain">
-            <label for="api">API Endpoint: </label>
-            <input type="text" name="api" id="api" value="" autocapitalize="off"
-                autocorrect="off"/>
-          </div>
-        </form>
         <div class="ui-body ui-body-b" id="subcan">
           <b>Options for all modes:</b>
           <hr>
@@ -102,6 +82,7 @@
           <input type="text" name="cfgcolor" id="cfgcolor" value="black" />
           <label for="cbgcolor">Complication background color (black/white/red/green/blue/... [case insensitive])</label>
           <input type="text" name="cbgcolor" id="cbgcolor" value="white" />
+Color choices are from: https://developer.pebble.com/guides/tools-and-resources/color-picker/ (E.g., enter "DarkGreen" for GColorDarkGreen).
           <hr>
           <fieldset class="ui-grid-a">
             <div class="ui-block-a">
