@@ -67,15 +67,17 @@
           <select id="vibe" name="vibe" style="width: 100%;">
             <option value="1">New BGs & Alerts</option>
             <option value="0">Alerts Only</option>
-            <option value="3">Alerts Only, non-repeating</option>
-            <option value="4">Alerts Only, repeat twice</option>
-            <option value="5">Alerts Only, repeat thrice</option>
+            <option value="3">Alerts Only, if unchanged only repeat once in 2 hours</option>
+            <option value="4">Alerts Only, if unchanged only repeat twice, then again in 2 hours</option>
+            <option value="5">Alerts Only, if unchanged only repeat thrice, then again in 2 hours</option>
             <option value="2">No vibrations</option>
           </select>
           <label for="timeline">Pin BG updates to timeline</label>
           <input type="checkbox" name="timeline" id="timeline" />    
           <label for="showsec">Show second hand (may use more battery)</label>
           <input type="checkbox" name="showsec" id="showsec" />    
+          <label for="tapbg">Refresh BG on tap or flick</label>
+          <input type="checkbox" name="tapbg" id="tapbg" />    
           <label for="hide">Hide BG (tap or flick to show)</label>
           <input type="checkbox" name="hide" id="hide" />    
           <label for="taptime">Seconds of tap/flick display</label>
@@ -150,6 +152,7 @@ Color choices are from: https://developer.pebble.com/guides/tools-and-resources/
           'raw': $('#raw').is(':checked'),
           'timeline': $('#timeline').is(':checked'),
           'showsec': $('#showsec').is(':checked'),
+          'tapbg': $('#tapbg').is(':checked'),
           'hide': $('#hide').is(':checked'),
           'taptime': $('#taptime').val(), 
           'fgcolor': $('#fgcolor').val(), 
@@ -170,6 +173,7 @@ Color choices are from: https://developer.pebble.com/guides/tools-and-resources/
           'monogram': $("#monogram").val(),
           'timeline': $('#timeline').is(':checked'),
           'showsec': $('#showsec').is(':checked'),
+          'tapbg': $('#tapbg').is(':checked'),
           'hide': $('#hide').is(':checked'),
           'taptime': $('#taptime').val(), 
           'fgcolor': $('#fgcolor').val(), 
@@ -192,6 +196,7 @@ Color choices are from: https://developer.pebble.com/guides/tools-and-resources/
           'monogram': $("#monogram").val(),
           'timeline': $('#timeline').is(':checked'),
           'showsec': $('#showsec').is(':checked'),
+          'tapbg': $('#tapbg').is(':checked'),
           'hide': $('#hide').is(':checked'),
           'taptime': $('#taptime').val(), 
           'fgcolor': $('#fgcolor').val(), 
@@ -224,6 +229,7 @@ Color choices are from: https://developer.pebble.com/guides/tools-and-resources/
           'remember_cl' : $("#remember_cl").is(':checked'),
           'timeline': $('#timeline').is(':checked'),
           'showsec': $('#showsec').is(':checked'),
+          'tapbg': $('#tapbg').is(':checked'),
           'hide': $('#hide').is(':checked'),
           'taptime': $('#taptime').val(), 
           'fgcolor': $('#fgcolor').val(), 
@@ -311,6 +317,7 @@ Color choices are from: https://developer.pebble.com/guides/tools-and-resources/
 
         $('#timeline').prop('checked', old_options.timeline).checkboxradio("refresh");
         $('#showsec').prop('checked', old_options.showsec).checkboxradio("refresh");
+        $('#tapbg').prop('checked', old_options.tapbg).checkboxradio("refresh");
         $('#hide').prop('checked', old_options.hide).checkboxradio("refresh");
         $('#taptime').val(old_options.taptime);
         $('#fgcolor').val(old_options.fgcolor);
