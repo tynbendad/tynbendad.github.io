@@ -317,7 +317,7 @@ Color choices are from: https://developer.pebble.com/guides/tools-and-resources/
 
         $('#timeline').prop('checked', old_options.timeline).checkboxradio("refresh");
         $('#showsec').prop('checked', old_options.showsec).checkboxradio("refresh");
-        $('#tapbg').prop('checked', old_options.tapbg).checkboxradio("refresh");
+        $('#tapbg').prop('checked', typeof old_options.tapbg != "undefined" ? old_options.tapbg : 1).checkboxradio("refresh");
         $('#hide').prop('checked', old_options.hide).checkboxradio("refresh");
         $('#taptime').val(old_options.taptime);
         $('#fgcolor').val(old_options.fgcolor);
