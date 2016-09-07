@@ -311,6 +311,7 @@ Color choices are from: https://developer.pebble.com/guides/tools-and-resources/
         $("#unit option[value='"+ old_options.unit + "']").prop('selected', true);
         $("#region option[value='"+ old_options.region + "']").prop('selected', true);
         var vibe_val = typeof old_options.vibe != "undefined" ? old_options.vibe : "4";
+        $("#vibe option[value='" + "0" +"']").prop('selected', false);
         $("#vibe option[value='" + vibe_val +"']").prop('selected', true);
 
         $('#unit').selectmenu("refresh",true);
