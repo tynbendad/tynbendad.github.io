@@ -310,7 +310,8 @@ Color choices are from: https://developer.pebble.com/guides/tools-and-resources/
         $('#remember_cl').prop('checked', old_options.remember_cl).checkboxradio("refresh");
         $("#unit option[value='"+ old_options.unit + "']").prop('selected', true);
         $("#region option[value='"+ old_options.region + "']").prop('selected', true);
-        $("#vibe option[value='" + (typeof old_options.vibe != "undefined" ? old_options.vibe : 4) +"']").prop('selected', true);
+        var vibe_val = typeof old_options.vibe != "undefined" ? old_options.vibe : "4";
+        $("#vibe option[value='" + vibe_val +"']").prop('selected', true);
 
         $('#unit').selectmenu("refresh",true);
         $('#vibe').selectmenu("refresh",true);
