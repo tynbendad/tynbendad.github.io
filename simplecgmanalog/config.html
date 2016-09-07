@@ -67,23 +67,28 @@
           <select id="vibe" name="vibe" style="width: 100%;">
             <option value="1">New BGs & Alerts</option>
             <option value="0">Alerts Only</option>
+            <option value="3">Alerts Only, repeat once in 2 hours if unchanged</option>
+            <option value="4">Alerts Only, repeat twice, then again in 2 hours if unchanged</option>
+            <option value="5">Alerts Only, repeat thrice, then again in 2 hours if unchanged</option>
             <option value="2">No vibrations</option>
           </select>
           <label for="timeline">Pin BG updates to timeline</label>
           <input type="checkbox" name="timeline" id="timeline" />    
           <label for="showsec">Show second hand (may use more battery)</label>
           <input type="checkbox" name="showsec" id="showsec" />    
+          <label for="tapbg">Refresh BG on tap or flick</label>
+          <input type="checkbox" name="tapbg" id="tapbg" checked />    
           <label for="hide">Hide BG (tap or flick to show)</label>
           <input type="checkbox" name="hide" id="hide" />    
-          <label for="taptime">Seconds of tap/flick display</label>
+          <label for="taptime">Seconds of tap/flick display (empty defaults to 2)</label>
           <input type="text" name="taptime" id="taptime" value="4" />
-          <label for="fgcolor">Foreground color (black/white/red/green/blue/... [case insensitive])</label>
+          <label for="fgcolor">Foreground color (black/white/red/green/blue/... [case insensitive, defaults to white])</label>
           <input type="text" name="fgcolor" id="fgcolor" value="black" />
-          <label for="bgcolor">Background color (black/white/red/green/blue/... [case insensitive])</label>
+          <label for="bgcolor">Background color (black/white/red/green/blue/... [case insensitive, defaults to black])</label>
           <input type="text" name="bgcolor" id="bgcolor" value="white" />
-          <label for="cfgcolor">Complication foreground color (black/white/red/green/blue/... [case insensitive])</label>
+          <label for="cfgcolor">Complication foreground color (black/white/red/green/blue/... [case insensitive, defaults to white])</label>
           <input type="text" name="cfgcolor" id="cfgcolor" value="black" />
-          <label for="cbgcolor">Complication background color (black/white/red/green/blue/... [case insensitive])</label>
+          <label for="cbgcolor">Complication background color (black/white/red/green/blue/... [case insensitive, defaults to black])</label>
           <input type="text" name="cbgcolor" id="cbgcolor" value="white" />
 Color choices are from: https://developer.pebble.com/guides/tools-and-resources/color-picker/ (E.g., enter "DarkGreen" for GColorDarkGreen).
           <hr>
@@ -147,6 +152,7 @@ Color choices are from: https://developer.pebble.com/guides/tools-and-resources/
           'raw': $('#raw').is(':checked'),
           'timeline': $('#timeline').is(':checked'),
           'showsec': $('#showsec').is(':checked'),
+          'tapbg': $('#tapbg').is(':checked'),
           'hide': $('#hide').is(':checked'),
           'taptime': $('#taptime').val(), 
           'fgcolor': $('#fgcolor').val(), 
@@ -167,6 +173,7 @@ Color choices are from: https://developer.pebble.com/guides/tools-and-resources/
           'monogram': $("#monogram").val(),
           'timeline': $('#timeline').is(':checked'),
           'showsec': $('#showsec').is(':checked'),
+          'tapbg': $('#tapbg').is(':checked'),
           'hide': $('#hide').is(':checked'),
           'taptime': $('#taptime').val(), 
           'fgcolor': $('#fgcolor').val(), 
@@ -189,6 +196,7 @@ Color choices are from: https://developer.pebble.com/guides/tools-and-resources/
           'monogram': $("#monogram").val(),
           'timeline': $('#timeline').is(':checked'),
           'showsec': $('#showsec').is(':checked'),
+          'tapbg': $('#tapbg').is(':checked'),
           'hide': $('#hide').is(':checked'),
           'taptime': $('#taptime').val(), 
           'fgcolor': $('#fgcolor').val(), 
@@ -221,6 +229,7 @@ Color choices are from: https://developer.pebble.com/guides/tools-and-resources/
           'remember_cl' : $("#remember_cl").is(':checked'),
           'timeline': $('#timeline').is(':checked'),
           'showsec': $('#showsec').is(':checked'),
+          'tapbg': $('#tapbg').is(':checked'),
           'hide': $('#hide').is(':checked'),
           'taptime': $('#taptime').val(), 
           'fgcolor': $('#fgcolor').val(), 
@@ -281,9 +290,9 @@ Color choices are from: https://developer.pebble.com/guides/tools-and-resources/
             'low' : 80,
             'unit': 'mgdl',
             'accountName': '',
-            'vibe' : 'new',
+            'vibe' : '4',
             'api' : '',
-            
+            'tapbg' : 1
         };
         
         //$("#mode option[value='"+ old_options.mode + "']").prop('selected', true);
@@ -301,13 +310,14 @@ Color choices are from: https://developer.pebble.com/guides/tools-and-resources/
         $('#remember_cl').prop('checked', old_options.remember_cl).checkboxradio("refresh");
         $("#unit option[value='"+ old_options.unit + "']").prop('selected', true);
         $("#region option[value='"+ old_options.region + "']").prop('selected', true);
-        $("#vibe option[value='" + old_options.vibe +"']").prop('selected', true);
+        $("#vibe option[value='"+ old_options.vibe +"']").prop('selected', true);
 
         $('#unit').selectmenu("refresh",true);
         $('#vibe').selectmenu("refresh",true);
 
         $('#timeline').prop('checked', old_options.timeline).checkboxradio("refresh");
         $('#showsec').prop('checked', old_options.showsec).checkboxradio("refresh");
+        $('#tapbg').prop('checked', old_options.tapbg).checkboxradio("refresh");
         $('#hide').prop('checked', old_options.hide).checkboxradio("refresh");
         $('#taptime').val(old_options.taptime);
         $('#fgcolor').val(old_options.fgcolor);
