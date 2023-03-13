@@ -6,6 +6,6 @@
 var dt = new Date();
 document.getElementById("datetime").innerHTML = dt.toLocaleString();
 document.getElementById("datetime1").innerHTML = dt.toLocaleString('en', { month: 'short', day: 'numeric', weekday: 'short' });
-document.getElementById("datetime2").innerHTML = dt.toLocaleString('en_US', { month: 'short', day: 'numeric', weekday: 'short' });
+document.getElementById("datetime2").innerHTML = dt.toLocaleString('en', { month: 'short', day: 'numeric', weekday: 'short' }).split(" at ")[0];
 </script>
 
