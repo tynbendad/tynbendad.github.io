@@ -1,0 +1,11 @@
+<p>Date/Time: <span id="datetime"></span></p>
+<p>Date/Time: <span id="datetime1"></span></p>
+<p>Date/Time: <span id="datetime2"></span></p>
+
+<script>
+var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleString();
+document.getElementById("datetime1").innerHTML = dt.toLocaleString('en', { month: 'short', day: 'numeric', weekday: 'short' });
+document.getElementById("datetime2").innerHTML = dt.toLocaleString('en_US', { month: 'short', day: 'numeric', weekday: 'short' });
+</script>
+
